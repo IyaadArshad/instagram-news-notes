@@ -1,0 +1,18 @@
+{
+  "name": "news-note-updater",
+  "version": "1.0.0",
+  "description": "Appwrite Function that polls RSS feeds from 35+ news sources and updates your Instagram Note with the latest breaking headline",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "get-session": "node scripts/get-session.js"
+  },
+  "dependencies": {
+    "instagram-notes": "^1.1.2",
+    "node-appwrite": "^14.0.0",
+    "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "dotenv": "^17.3.1"
+  }
+}
