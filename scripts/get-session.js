@@ -6,8 +6,6 @@
  * likely block datacenter IPs).
  *
  * Usage:
- *   cd functions/news-note-updater
- *   npm install
  *   node scripts/get-session.js
  *
  * Then paste the session ID into your Appwrite Function environment variable:

@@ -236,13 +236,11 @@ export default async ({ req, res, log, error }) => {
       lastUpdated: new Date().toISOString(),
     };
 
-    // Try create first, if doc already exists then update
     try {
       await databases.createDocument(DB_ID, STATE_COLLECTION, STATE_DOC_ID, stateData);
       log("State created in database");
     } catch (e) {
       if (e.code === 409) {
-        // Document already exists — update it
         try {
           await databases.updateDocument(DB_ID, STATE_COLLECTION, STATE_DOC_ID, stateData);
           log("State updated in database");
@@ -264,7 +262,6 @@ export default async ({ req, res, log, error }) => {
       link: newest.link,
     });
   } catch (fatal) {
-    // Top-level catch — ensures we ALWAYS get logs even on unexpected crashes
     const msg = fatal?.message || String(fatal);
     const stack = fatal?.stack || "(no stack)";
     error("FATAL UNCAUGHT ERROR: " + msg);
